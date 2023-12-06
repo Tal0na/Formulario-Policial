@@ -7,6 +7,8 @@ import Apreensoes from './components/Apreensoes';
 import Testemunhas from './components/Testemunhas';
 import Vitimas from './components/Vitimas';
 import Locais from './components/locais/Locais';
+import TempoPrisao from './components/TPrisao/TempoPrisao';
+import Multa from './components/multa/Multa';
 import Narrativa from './components/Narrativa';
 
 export default function Home() {
@@ -20,7 +22,14 @@ export default function Home() {
       <Testemunhas />
       <Vitimas />
       <Locais />
+      <TempoPrisao />
+      <Multa />
       <Narrativa />
+      
+      Locker de Evidência: 1+ID da ocorrência :TODO
+      Tempo de Prisão
+      Valor (em dólares):
+
     </div>
   );
 }

@@ -29,7 +29,7 @@ const Locais: React.FC = () => {
         <div key={local.id} className="mb-4">
           <div className="mb-2">
             <label className="block text-sm font-semibold mb-1" htmlFor={`local-nome-${local.id}`}>
-              Nome do Local:
+              Nomes dos Locais:
             </label>
             <input
               className="w-full p-2 border rounded"
