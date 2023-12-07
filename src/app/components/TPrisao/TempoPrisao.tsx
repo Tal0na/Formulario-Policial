@@ -55,7 +55,7 @@ const Suspeitos: React.FC = () => {
             </label>
             <input
               className="w-full p-2 border rounded"
-              type="text"
+              type="time"
               id={`tempo-prisao-${suspeito.id}`}
               name={`tempo-prisao-${suspeito.id}`}
               value={suspeito.tempoPrisao}

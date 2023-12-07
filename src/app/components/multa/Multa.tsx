@@ -1,21 +1,22 @@
 'use client';
 import React, { useState } from 'react';
+import CurrencyInput from 'react-currency-input-field';
 
 interface MultaProps {
   id: number;
   nomePreso: string;
-  valor: number;
+  valor: string; // Alterado para string para aceitar a formatação em dólar
 }
 
 const Multa: React.FC = () => {
   const [multas, setMultas] = useState<MultaProps[]>([
-    { id: 1, nomePreso: '', valor: 0 },
+    { id: 1, nomePreso: '', valor: '0' },
   ]);
 
-  const handleChange = (id: number, field: string, value: string | number) => {
+  const handleChange = (id: number, field: string, value: string | undefined) => {
     setMultas((prevMultas) =>
       prevMultas.map((multa) =>
-        multa.id === id ? { ...multa, [field]: value } : multa
+        multa.id === id ? { ...multa, [field]: value || '0' } : multa
       )
     );
   };
@@ -50,15 +51,17 @@ const Multa: React.FC = () => {
             >
               Valor (em dólares):
             </label>
-            <input
+            <CurrencyInput
               className="w-full p-2 border rounded"
-              type="number"
               id={`multa-valor-${multa.id}`}
               name={`multa-valor-${multa.id}`}
               value={multa.valor}
-              onChange={(e) =>
-                handleChange(multa.id, 'valor', parseInt(e.target.value, 10))
+              onValueChange={(value) =>
+                handleChange(multa.id, 'valor', value)
               }
+              prefix="$"
+              allowDecimals={true}
+              decimalsLimit={2}
             />
           </div>
         </div>
